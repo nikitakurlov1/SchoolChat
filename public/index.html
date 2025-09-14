@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шкільна Платформа - Вхід</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="auth-background">
+        <div class="auth-container">
+            <div class="auth-form">
+                <div class="form-header">
+                    <h1>Шкільна Платформа</h1>
+                    <p>Увійдіть або зареєструйтеся</p>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="loginForm" class="form-section active">
+                    <div class="form-group">
+                        <label for="login">Номер телефону</label>
+                        <input type="tel" id="login" name="login" placeholder="+380XXXXXXXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Пароль</label>
+                        <input type="password" id="loginPassword" name="password" placeholder="Введіть пароль" required>
+                    </div>
+                    <button type="submit" class="primary-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                            <polyline points="10 17 15 12 10 7"></polyline>
+                            <line x1="15" y1="12" x2="3" y2="12"></line>
+                        </svg>
+                        Увійти
+                    </button>
+                </form>
+                
+                <!-- Registration Form -->
+                <form id="registrationForm" class="form-section">
+                    <div class="form-group">
+                        <label for="firstName">Ім'я</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Введіть ім'я" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Прізвище</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Введіть прізвище" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grade">Клас</label>
+                        <input type="text" id="grade" name="grade" placeholder="Наприклад: 10-А" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regLogin">Номер телефону</label>
+                        <input type="tel" id="regLogin" name="regLogin" placeholder="+380XXXXXXXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Пароль</label>
+                        <input type="password" id="regPassword" name="regPassword" placeholder="Створіть пароль" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="school" class="school-selection-label">
+                            Школа
+                            <button type="button" id="selectSchoolBtn" class="select-school-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                                Обрати
+                            </button>
+                        </label>
+                        <input type="text" id="school" name="school" placeholder="Оберіть школу" readonly required>
+                    </div>
+                    <button type="submit" class="primary-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <line x1="20" y1="8" x2="20" y2="14"></line>
+                            <line x1="23" y1="11" x2="17" y2="11"></line>
+                        </svg>
+                        Зареєструватися
+                    </button>
+                </form>
+                
+                <div class="form-footer">
+                    <p id="toggleForm">
+                        <span id="showRegister">Немає акаунта? <a href="#">Зареєструватися</a></span>
+                        <span id="showLogin" class="hidden">Маєте акаунт? <a href="#">Увійти</a></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- School Selection Modal -->
+    <div id="schoolModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Оберіть школу</h2>
+                <button class="close-modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="school-list">
+                    <div class="school-item" data-school="Первозванівський ліцей">
+                        <div class="school-info">
+                            <h3>Первозванівський ліцей</h3>
+                            <p>с. Первозванівка</p>
+                        </div>
+                        <div class="school-select-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="school-item" data-school="Степова філія">
+                        <div class="school-info">
+                            <h3>Степова філія</h3>
+                            <p>с. Степове</p>
+                        </div>
+                        <div class="school-select-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="school-item" data-school="Калинівська філія">
+                        <div class="school-info">
+                            <h3>Калинівська філія</h3>
+                            <p>с. Калинівка</p>
+                        </div>
+                        <div class="school-select-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>
